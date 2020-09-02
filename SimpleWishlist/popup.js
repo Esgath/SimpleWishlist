@@ -726,6 +726,6 @@ function resetFields() {
     itemImage.value = "";
 }
 
-chrome.storage.local.get(null, function(result) {
-    console.log(result);
-});
+// chrome.storage.local.get(null, function(result) {
+//     console.log(result);
+// });
