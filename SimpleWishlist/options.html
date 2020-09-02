@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-2">Options</h1>
+        <div id="currency-options" class="optionContainer flexbox my-2">
+            <h4 class="mt-4">Add your currency:</h4>
+            <form id="currency-form" class="flexbox" autocomplete="off">
+                <div class="container my-4">
+                    <label for="currency-code" class="label-currency">Currency code:</label>
+                    <input type="text" id="currency-code" placeholder="EUR" required>
+                </div>
+                <div class="container">
+                    <label for="currency-symbol" class="label-currency">Currency symbol:</label>
+                    <input type="text" id="currency-symbol" placeholder="€">
+                    <span id="optional">(Optional)</span>
+                </div>
+                <input type="submit" class="btn btn-dark my-3" id="submitCurrency" value="Submit">
+            </form>
+            <a href="https://www.xe.com/symbols.php">World currency symbols.</a>
+        </div>
+        <div id="currency-delete" class="optionContainer flexbox my-2">
+            <h4 class="mt-4">Delete currency:</h4>
+            <form id="currency-form-delete" class="flexbox" autocomplete="off">
+                <select id="selection" class="form-control">
+                    <option value="" disabled selected>----------</option>
+                </select>
+                <input type="submit" class="btn btn-dark my-3" value="Delete" id="delete-btn">
+            </form>
+        </div>
+        <div id="downloadDataContainer" class="optionContainer flexbox my-2">
+            <h4 class="mt-4">Download your wishlist data</h4>
+            <p>If you want to re-install this extension it's recommended to download and then upload your data otherwise it will be lost.</p>
+            <button class="btn btn-outline-secondary btn-lg my-3" id="downloadBtn">Download</button>
+        </div>
+        <div id="uploadDataContainer" class="optionContainer flexbox mb-5">
+            <h4 class="mt-4">Upload your wishlist data (overwrites current)</h4>
+            <input type="file" id="importOrig" accept=".json" style="display:none;"/>
+            <button class="btn btn-outline-secondary btn-lg my-3" id="fakeImp">Upload and update</button>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
