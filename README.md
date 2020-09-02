@@ -11,6 +11,7 @@ In this menu user can create a new wishlist or open one of saved lists.
 ![Imgur](https://i.imgur.com/AhFp7V1.png)
 
 If a user opens saved wishlist they get all items inside it. The user can sort items based on their price by using arrows. Also inside this menu user can find "Save and close" button which will save changes and "Delete" button which will delete the whole wishlist.
+
 ![Imgur](https://i.imgur.com/sQu5oKf.png)
 
 ### Find Images
