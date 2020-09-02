@@ -1,7 +1,7 @@
 ![Imgur](https://i.imgur.com/7cce2o4.png)
 
  # SimpleWishlist
-SimpleWishlist is a chrome extension used for storing user's favorite items in a separate lists that user can edit and delete. This extension uses only local storage (5MB), user can't share data by using sync storage. I choose local storage over sync simply because of available size and needs of extension. This extension doesn't require to have any accounts from other applications. Extensions is entirely made with JavaScript and uses [Bootstrap](https://getbootstrap.com/) for styling, every icon used in interface is a [Bootstrap](https://getbootstrap.com/) icon, extension icon is made by me using [Inkscape](https://inkscape.org/).
+SimpleWishlist is a chrome extension used for storing user's favorite items in a separate lists that user can edit and delete. This extension uses only local storage (5MB), user can't share data by using sync storage. I choose local storage over sync simply because of available size and needs of extension. This extension doesn't require to have any accounts from other applications. Extensions is entirely made with JavaScript, CSS, HTML and uses [Bootstrap](https://getbootstrap.com/) for styling, every icon used in interface is a [Bootstrap](https://getbootstrap.com/) icon, extension icon is made by me using [Inkscape](https://inkscape.org/).
 
 ### Main Menu
 The main menu displays all information about item user needs to input. Currency is optional and user can add their own if it's not in a list (go to extension's options). User can choose preview image for their item, but it's not mandatory. The URL is fetched automatically from the active tab.
