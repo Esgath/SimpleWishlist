@@ -1,0 +1,181 @@
+/* Additional panels -> images and wishlists
+================================ */
+#imagesBtnFind, #wishlistsBtnDisplay {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.textContainer {
+    font-size: 1.4em;
+    flex-grow: 3;
+}
+/* Images panel
+================================ */
+#menu {
+    min-width: 220px;
+    max-width: 220px;
+}
+#listOfFoundImages {
+    min-width: 220px;
+    max-width: 230px;
+    width: 100%;
+}
+.item-image {
+    box-sizing: content-box;
+    max-width: 75px;
+    max-height: 100px;
+    transition: 0.5s;
+    margin-bottom: 10px;
+}
+.item-image:hover {
+    position: relative;
+    transform: scale(1.7);
+    transition: 0.5s;
+    z-index: 10;
+}
+.flexbox-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+.image-container {
+    position: relative;
+    left: 0.5em;
+    width: 45%;
+    display: inline-block;
+}
+#pagination {
+    display: flex;
+    flex-wrap: wrap;
+}
+.active-image div.svg-check {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 11;
+    justify-content: center;
+    align-items: center;
+}
+.active-image div.svg-check svg{
+    width: 4em;
+    height: 4em;
+    fill: green;
+    stroke: rgb(0, 0, 0);
+    stroke-width: 0.2px;
+}
+
+/* Image Url Input Field
+================================ */
+.blink {
+    transform: scale(1.1);
+    transition: 0.1s;
+}
+#imgItemUrl {
+   transition: 0.1s; 
+}
+
+/* Wishlist Pane
+================================ */
+#listOfItemsInAWishlist {
+    min-width: 250px;
+    max-width: 250px;
+    width: 100%;
+}
+#currentListOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+button.wishlistButtonOption{
+    font-size: 0.85em;
+    width: 100%;
+}
+.inputClass {
+    width: 100%;
+}
+#wishlistPaginationBtnWrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+#editWishlistNameSVG {
+    cursor: pointer;
+}
+#editWishlistNameSVG:hover {
+    border: 2px solid grey;
+    border-radius: 20px 20px 20px 20px;
+}
+#displayNameContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#sortingBtnsContainer {
+    display: flex;
+    flex-direction: row;
+}
+#sortingBtnsContainer button{
+    width: 100%
+}
+/* Wishlist Pane Components
+================================ */
+.wishlistItem {
+    display: flex;
+    flex-direction: column;
+}
+.item-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+span.item-name {
+    overflow: hidden;
+}
+.imageAndNameContainer {
+    display: flex;
+    flex-direction: row;
+}
+.imageOfWishlistItem {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid black;
+    transition: 0.3s;
+}
+
+/* Other 
+================================ */
+#openOptions {
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px;
+    color: royalblue;
+}
+#openOptions:hover {
+    text-decoration-line: underline;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+}
+/* MENU
+================================= */
+#itemSubmitOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#submitBtnAddToCurrent {
+    width: 100%;
+}
+#moreContainer {
+    font-size: 0.8em;
+}
+#viewRedirect {
+    width: 100%;
+}
