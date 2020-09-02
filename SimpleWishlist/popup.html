@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Wishlist</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+    <div class="container my-1 px-0">
+        <div class="flexbox">
+            <div class="px-2" id="listOfItemsInAWishlist" style="display: none;">
+                <div id="createNewListContainer">
+                    <h5 class="my-2 mx-2">Create new wishlist:</h5>
+                    <form id="submitWishlist" autocomplete="off">
+                        <div id="listNameContainer" class="my-0">
+                            <label for="listName" class="label col-form-label py-1">Wishlist Name:</label>
+                            <input type="text" placeholder="name" class="inputClass" id="listName" required>
+                        </div>
+                        <input type="submit" class="btn btn-dark btn-sm my-1" id="submitBtnCreateWishlist" value="Create" title="Create new wishlist.">
+                    </form>
+                    <h5 class="my-2 mx-2">Or open saved:</h5>
+                    <div id="openSavedWishlist">
+                        <select id="openSavedSelect" class="form-control">
+                            <option title="No selection" disabled selected value>-- select an option --</option>
+                        </select>
+                        <button class="btn btn-dark btn-sm my-1" id="openOldBtn">Open</button>
+                    </div>
+                </div>
+                <div id="currentListContainer">
+                    <div id="currentListOptions" class="mb-1 mt-2">
+                        <button class="btn btn-dark wishlistButtonOption mr-1" id="closeCurrentBtn">Save and close</button>
+                        <button class="btn btn-outline-danger" id="deleteCurrentWishlist">Delete</button>
+                    </div>
+                    <div id="currentListContainer">
+                        <div id="displayNameContainer">
+                            <div id="displayName">""</div>
+                            <div style="display: none;" id="displayNameEditContainer">
+                                <label for="displayNameEdit" class="label col-form-label py-1">New name:</label>
+                                <div class="flexbox my-1">
+                                    <input type="text" placeholder="new name" class="inputClass" id="displayNameEdit">
+                                    <button class="btn btn-sm btn-dark" id="submitNewWishlistNameBtn">Submit</button>    
+                                </div>
+                            </div>
+                            <div id="editWishlistNameSVG" class="mx-1 my-1">
+                                <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                </svg>    
+                            </div>
+                        </div>
+                        <div id="sortingBtnsContainer" class="mb-1">
+                            <button id="ascendingBtn" class="btn btn-outline-dark mr-1 py-0">
+                                <svg width="1.1em" height="1.1em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                                </svg>
+                            </button>
+                            <button id="descendingBtn" class="btn btn-outline-dark py-0">
+                                <svg width="1.1em" height="1.1em" viewBox="0 0 16 16" class="bi bi-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="list-group" id="listOfItems">
+                        </ul>
+                    </div>
+                    <div id="wishlistPaginationBtnWrapper">
+                    </div>
+                </div>
+            </div>
+            <div class="flexbox-images ml-3" id="listOfFoundImages" style="display: none;">
+                <h5 class="mt-1">Pick one:</h5>
+                <div id="images-wrapper">
+                </div>
+                <div id="pagination">
+                </div>
+            </div>
+            <div class="mx-2" id="menu">
+                <div id="notNewListContainer">
+                    <form id="main-form" autocomplete="off">
+                        <div id="nameDiv" class="my-0">
+                            <label for="name" class="label col-form-label py-1">Item Name:</label>
+                            <input type="text" class="inputClass" placeholder="name" id="name" required>
+                        </div>
+                        <div id="priceDiv" class="my-0">
+                            <label for="price" class="label col-form-label py-1">Price:</label>
+                            <input type="text" class="inputClass" id="price" placeholder="0.00" required>
+                            <select id="currencySelector" class="mt-2">
+                                <option data-symbol="" value="">ignore</option>
+                                <option data-symbol="$" value="USD" id="test">USD</option>
+                                <option data-symbol="€" value="EUR">EUR</option>
+                                <option data-symbol="£" value="GBP">GBP</option>
+                                <option data-symbol="¥" value="JPY">JPY</option>
+                                <option data-symbol="$" value="CAD">CAD</option>
+                                <option data-symbol="$" value="AUD">AUD</option>
+                            </select>
+                            <div id="moreContainer">Missing currency? <span id="openOptions">Click me (options)</span></div>
+                        </div>
+                        <div id="UrlDiv" class="my-0">
+                            <label for="itemUrl" class="label col-form-label py-1">URL:</label>
+                            <input type="text" class="inputClass" placeholder="url" id="itemUrl" disabled>
+                        </div>
+                        <div id="ImgUrlDiv" class="my-0">
+                            <label for="imgItemUrl" class="label col-form-label py-1">Image URL:</label>
+                            <input type="text" class="inputClass" placeholder="img url" id="imgItemUrl">
+                        </div>
+                        <div id="itemSubmitOptions">
+                            <input type="submit" class="btn btn-dark btn-sm my-1" id="submitBtnAddToCurrent" value="Add to current list" title="Add item to currently selected list." disabled>    
+                        </div>
+                    </form>
+                </div>
+
+                <div id="displayCurrentListContainer" class="mb-2">
+                    <button class="btn btn-sm btn-outline-dark" id="wishlistsBtnDisplay">
+                        <div class="svgContainer">
+                            <svg width="1.7em" height="1.7em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
+                                <circle cx="3.5" cy="5.5" r=".5"/>
+                                <circle cx="3.5" cy="8" r=".5"/>
+                                <circle cx="3.5" cy="10.5" r=".5"/>
+                            </svg>
+                        </div>
+                        <span class="textContainer">Show wishlist</span>
+                    </button>
+                </div>
+                <div id="displayFoundImages" class="mb-2">
+                    <button class="btn btn-sm btn-outline-dark" id="imagesBtnFind">
+                        <div class="svgContainer">
+                            <svg width="1.7em" height="1.7em" viewBox="0 0 16 16" class="bi bi-card-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9c0 .013 0 .027.002.04V12l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094L15 9.499V3.5a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm4.502 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            </svg>
+                        </div>
+                        <span class="textContainer">Find images</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
