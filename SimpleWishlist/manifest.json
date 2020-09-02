@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "SimpleWishlist",
+    "version": "1.0",
+    "description": "A simple wishlist to store your favorite things to buy.",
+    "browser_action": {
+        "default_title": "SimpleWishlist",
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+    "background": {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "permissions": ["storage", "downloads", "activeTab"]
+}
